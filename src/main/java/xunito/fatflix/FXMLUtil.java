@@ -13,16 +13,14 @@ public class FXMLUtil {
 			Scene scene = new Scene(fxmlLoader.load());
 			return scene;
 		} catch (IOException eIO) {
-			System.err.println(eIO);
-//			Alert alert = AlertUtil.error("Erro", "Erro ao carregar um componente", "Erro ao tentar carregar a janela " + fxml,
-//					eIO);
-//			alert.showAndWait();
+			Alert alert = AlertUtil.error("Erro", "Error trying to load a component", "Error trying to load a component " + fxml,
+					eIO);
+			alert.showAndWait();
 			return null;
 		} catch (IllegalStateException eIllegalState) {
-			System.err.println(eIllegalState);
-//			Alert alert = AlertUtil.error("Erro", "Erro - Arquivo inexistente ", "Erro ao tentar carregar a janela " + fxml,
-//					eIllegalState);
-//			alert.showAndWait();
+			Alert alert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the window " + fxml,
+					eIllegalState);
+			alert.showAndWait();
 			return null;
 		}
 	}
