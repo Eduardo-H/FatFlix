@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="325.0" prefWidth="549.0" spacing="20.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.MainController">
+<VBox alignment="CENTER" prefHeight="325.0" prefWidth="549.0" spacing="20.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.controllers.MainController">
    <children>
       <Label text="Welcome" textFill="WHITE" />
       <Button fx:id="logoutBtn" onAction="#logout" prefHeight="37.0" prefWidth="88.0" style="-fx-background-color: #28DF99;" text="Logout" textFill="#3e3e3e" />

@@ -3,6 +3,6 @@ module xunito.fatflix {
     requires javafx.fxml;
 	requires javafx.graphics;
 
-    opens xunito.fatflix to javafx.fxml;
+    opens xunito.fatflix.controllers to javafx.fxml;
     exports xunito.fatflix;
 }

@@ -9,6 +9,6 @@ public class MainController {
     @FXML
     private void logout() {
     	App.changeResizable();
-    	App.setRoot("main");
+    	App.setRoot("login");
     }
 }
