@@ -10,7 +10,7 @@ public class MainController {
     	try {
     		App.setRoot("login");
     	} catch (IOException e) {
-    		System.err.println("Not able to open the login window");
+    		System.err.println("Not able to open the login window.");
     	}
     }
 }
