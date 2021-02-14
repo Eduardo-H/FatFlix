@@ -21,7 +21,7 @@
                <children>
                   <ImageView fx:id="logo" cache="true" fitHeight="91.0" fitWidth="107.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../../../../../img/fatflix-icon.png" />
+                        <Image url="@img/fatflix-icon.png" />
                      </image>
                   </ImageView>
                </children>

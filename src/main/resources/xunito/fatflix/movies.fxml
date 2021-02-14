@@ -18,9 +18,9 @@
    <children>
       <HBox alignment="CENTER_LEFT" style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="logo" fitHeight="55.0" fitWidth="55.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../../../../../img/fatflix-icon.png" />
+                  <Image url="@img/fatflix-icon.png" />
                </image>
                <HBox.margin>
                   <Insets left="50.0" />

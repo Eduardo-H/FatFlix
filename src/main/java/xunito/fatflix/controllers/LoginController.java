@@ -1,10 +1,8 @@
 package xunito.fatflix.controllers;
 
 import xunito.fatflix.App;
-import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class LoginController {
@@ -12,6 +10,8 @@ public class LoginController {
 	private Button loginBtn;
 	@FXML
 	private Button singUpBtn;
+	@FXML
+	private ImageView logo;
 	
 	@FXML
 	private void login() {
