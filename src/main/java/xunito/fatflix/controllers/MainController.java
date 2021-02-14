@@ -11,4 +11,9 @@ public class MainController {
     	App.changeResizable();
     	App.setRoot("login");
     }
+    
+    @FXML
+	public void openMoviesScreen() {
+		App.setRoot("movies");
+	}
 }
