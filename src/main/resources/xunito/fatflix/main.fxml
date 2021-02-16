@@ -83,7 +83,7 @@
                   <Insets />
                </VBox.margin>
                <font>
-                  <Font name="FreeSans" size="20.0" />
+                  <Font name="FreeSans" size="24.0" />
                </font>
             </Label>
             <ListView prefHeight="250.0" style="-fx-background-color: #333333; -fx-background-radius: 5;">
@@ -93,7 +93,7 @@
             </ListView>
             <Label text="Last TV Shows Added" textFill="#28df99">
                <font>
-                  <Font name="FreeSans" size="20.0" />
+                  <Font name="FreeSans" size="24.0" />
                </font>
                <VBox.margin>
                   <Insets top="20.0" />
@@ -106,7 +106,7 @@
             </ListView>
          </children>
          <padding>
-            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+            <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
          </padding>
       </VBox>
    </children>
