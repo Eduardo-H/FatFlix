@@ -10,6 +10,12 @@ public class MovieController {
 	private ImageView logo;
 	
 	@FXML
+    private void logout() {
+    	App.changeResizable();
+    	App.setRoot("login");
+    }
+	
+	@FXML
 	public void openHomeScreen() {
 		App.setRoot("main");
 	}

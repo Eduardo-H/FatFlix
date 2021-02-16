@@ -36,15 +36,18 @@
                         <Insets left="50.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
+                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#openHomeScreen" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openMoviesScreen" style="-fx-background-color: #333333; -fx-cursor: hand;" text="Movies" textFill="#28df99" underline="true">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Movies" textFill="#28df99" underline="true">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -52,50 +55,65 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333; -fx-cursor: hand;" text="Series" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Series" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333; -fx-cursor: hand;" text="Directors" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333; -fx-cursor: hand;" text="Actors" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333; -fx-cursor: hand;" text="Producers" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Producers" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                </children>
                <padding>
                   <Insets bottom="10.0" top="10.0" />
                </padding>
             </HBox>
-            <Button fx:id="logoutBtn" mnemonicParsing="false" style="-fx-background-color: #333333;" text="Logout" textFill="#28df99" GridPane.columnIndex="1">
+            <Button fx:id="logoutBtn" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #333333;" text="Logout" textFill="#28df99" GridPane.columnIndex="1">
                <GridPane.margin>
                   <Insets />
                </GridPane.margin>
                <font>
                   <Font name="FreeSans" size="14.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </GridPane>
