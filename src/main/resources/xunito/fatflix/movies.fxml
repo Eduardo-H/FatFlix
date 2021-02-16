@@ -95,7 +95,7 @@
                         <Font name="FreeSans" size="26.0" />
                      </font>
                   </Label>
-                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" style="-fx-background-color: #3E3E3E;" text="+ Add new movie" textFill="#28df99" GridPane.columnIndex="1">
+                  <Button fx:id="newMovieBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#registerMovie" style="-fx-background-color: #3E3E3E;" text="+ Add new movie" textFill="#28df99" GridPane.columnIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

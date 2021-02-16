@@ -16,7 +16,7 @@ public class MovieController {
 	
 	@FXML
 	public void registerMovie() {
-		App.setRoot("registerMovie");
+		App.setRoot("movieRegister");
 	}
 	
 }
