@@ -21,6 +21,6 @@ public class LoginController {
 	
 	@FXML
 	private void singUp() {
-		App.setRoot("register");
+		App.setRoot("singUp");
 	}
 }
