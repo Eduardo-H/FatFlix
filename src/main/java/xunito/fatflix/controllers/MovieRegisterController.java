@@ -20,5 +20,4 @@ public class MovieRegisterController {
 	public void openHomeScreen() {
 		App.setRoot("main");
 	}
-	
 }
