@@ -21,6 +21,11 @@ public class MovieController {
 	}
 	
 	@FXML
+	public void openTVShowsScreen() {
+		App.setRoot("tvShows");
+	}
+	
+	@FXML
 	public void registerMovie() {
 		App.setRoot("movieRegister");
 	}

@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.controllers.MainController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.controllers.TvShowController">
    <children>
-      <GridPane layoutX="10.0" layoutY="10.0" prefHeight="70.0" style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <GridPane layoutX="20.0" layoutY="20.0" prefHeight="70.0" style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
             <ColumnConstraints percentWidth="90.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" percentWidth="10.0" />
@@ -36,13 +36,16 @@
                         <Insets left="50.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Home" textFill="#28df99" underline="true">
+                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#openHomeScreen" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="50.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="moviesBtn" mnemonicParsing="false" onAction="#openMoviesScreen" style="-fx-background-color: #333333;" text="Movies" textFill="WHITE">
                      <font>
@@ -55,7 +58,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="tvShowsBtn" mnemonicParsing="false" onAction="#openTVShowsScreen" style="-fx-background-color: #333333;" text="TV Shows" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="TV Shows" textFill="#28df99" underline="true">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -63,7 +66,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
                   <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
@@ -117,32 +120,38 @@
             </Button>
          </children>
       </GridPane>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+      <VBox layoutY="3.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
-            <Label text="Last Movies Added" textFill="#28df99">
+            <GridPane>
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="NEVER" percentWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
+               <children>
+                  <Label text="TV Shows" textFill="#28df99">
+                     <font>
+                        <Font name="FreeSans" size="24.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="newMovieBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false" style="-fx-background-color: #3E3E3E;" text="+ Add new TV Show" textFill="#28df99" GridPane.columnIndex="1">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <font>
+                        <Font name="FreeSans" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
                <VBox.margin>
                   <Insets />
                </VBox.margin>
-               <font>
-                  <Font name="FreeSans" size="24.0" />
-               </font>
-            </Label>
-            <ListView prefHeight="250.0" style="-fx-background-color: #333333; -fx-background-radius: 5;">
-               <VBox.margin>
-                  <Insets top="10.0" />
-               </VBox.margin>
-            </ListView>
-            <Label text="Last TV Shows Added" textFill="#28df99">
-               <font>
-                  <Font name="FreeSans" size="24.0" />
-               </font>
+            </GridPane>
+            <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #333333; -fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="20.0" />
-               </VBox.margin>
-            </Label>
-            <ListView prefHeight="250.0" style="-fx-background-color: #333333; -fx-background-radius: 5;">
-               <VBox.margin>
-                  <Insets top="10.0" />
                </VBox.margin>
             </ListView>
          </children>

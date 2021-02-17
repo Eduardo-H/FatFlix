@@ -19,4 +19,9 @@ public class MainController {
 	public void openMoviesScreen() {
 		App.setRoot("movies");
 	}
+    
+    @FXML
+	public void openTVShowsScreen() {
+		App.setRoot("tvShows");
+	}
 }

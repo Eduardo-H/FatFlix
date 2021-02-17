@@ -58,7 +58,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="TV Shows" textFill="WHITE">
+                  <Button fx:id="tvShowsBtn" mnemonicParsing="false" onAction="#openTVShowsScreen" style="-fx-background-color: #333333;" text="TV Shows" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
