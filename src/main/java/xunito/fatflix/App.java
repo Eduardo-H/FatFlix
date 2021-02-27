@@ -30,8 +30,4 @@ public class App extends Application {
 			stage.setResizable(true);
 	}
 
-    public static void main(String[] args) {
-        launch();
-    }
-
 }

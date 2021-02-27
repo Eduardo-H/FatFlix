@@ -1,5 +1,8 @@
 package xunito.fatflix.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Actor extends Person {
 	private float height;
 	

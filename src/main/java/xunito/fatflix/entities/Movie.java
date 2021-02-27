@@ -1,5 +1,8 @@
 package xunito.fatflix.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Movie extends Recording {
 	private String length;
 	

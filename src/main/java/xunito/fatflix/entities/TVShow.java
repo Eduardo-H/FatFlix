@@ -1,5 +1,8 @@
 package xunito.fatflix.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class TVShow extends Recording {
 	private int seasons;
 	

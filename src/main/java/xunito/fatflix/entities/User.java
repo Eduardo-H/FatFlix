@@ -1,5 +1,8 @@
 package xunito.fatflix.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class User {
 	private String username;
 	private String password;

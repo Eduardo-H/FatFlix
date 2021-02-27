@@ -2,14 +2,27 @@ package xunito.fatflix.db;
 
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
+import javax.persistence.EntityManager;
+
 import xunito.fatflix.entities.User;
 
 public class UserDAO implements InterfaceDAO<User> {
 
 	@Override
 	public void persist(User t) {
-		// TODO Auto-generated method stub
-		
+		EntityManager em = ConnDB.getEntityManager();
+		try {
+			em.getTransaction().begin();
+			em.persist(t);
+			em.getTransaction().commit();
+		} catch (EntityExistsException e) {
+			em.getTransaction().rollback();
+			User original = get(t.getUsername());
+			em.getTransaction().begin();
+			original.setPassword(t.getPassword());
+			em.getTransaction().commit();
+		}
 	}
 
 	@Override
