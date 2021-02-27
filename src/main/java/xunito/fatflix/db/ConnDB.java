@@ -13,6 +13,7 @@ import javax.persistence.Persistence;
 
 import javafx.scene.control.Alert;
 import xunito.fatflix.AlertUtil;
+import xunito.fatflix.entities.User;
 
 public class ConnDB {
 	private static EntityManagerFactory entityManagerFactory;
@@ -51,7 +52,7 @@ public class ConnDB {
 				lineIndex++;
 				line = users.get(lineIndex);
 				String password = processJSONLine(line);
-				User user = new User(username, password, "");
+				User user = new User(username, password);
 				result.add(user);
 			}
 		}
