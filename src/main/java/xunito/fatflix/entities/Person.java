@@ -1,7 +1,15 @@
 package xunito.fatflix.entities;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public abstract class Person {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO) // Auto increment
 	private int id;
+	
 	private String name;
 	private String birthDate;
 	private String nationality;

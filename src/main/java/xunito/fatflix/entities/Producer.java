@@ -1,7 +1,15 @@
 package xunito.fatflix.entities;
 
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
 public class Producer {
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO) // Auto increment
 	private int id;
+	
 	private String name;
 	private String foundation;
 	
