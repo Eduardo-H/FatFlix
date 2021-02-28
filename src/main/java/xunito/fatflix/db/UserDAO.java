@@ -27,20 +27,20 @@ public class UserDAO implements InterfaceDAO<User> {
 
 	@Override
 	public void remove(User t) {
-		// TODO Auto-generated method stub
-		
+		EntityManager em = ConnDB.getEntityManager();
+		em.getTransaction().begin();
+		em.remove(t);
+		em.getTransaction().commit();
 	}
 
 	@Override
 	public User get(Object pk) {
-		// TODO Auto-generated method stub
-		return null;
+		return ConnDB.getEntityManager().find(User.class, pk);
 	}
 
 	@Override
 	public List<User> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return ConnDB.getEntityManager().createQuery("SELECT u FROM User u", User.class).getResultList();
 	}
 	
 }

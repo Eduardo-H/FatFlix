@@ -2,6 +2,8 @@ package xunito.fatflix.db;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import xunito.fatflix.entities.Actor;
 
 public class ActorDAO implements InterfaceDAO<Actor> {
@@ -14,20 +16,20 @@ public class ActorDAO implements InterfaceDAO<Actor> {
 
 	@Override
 	public void remove(Actor t) {
-		// TODO Auto-generated method stub
-		
+		EntityManager em = ConnDB.getEntityManager();
+		em.getTransaction().begin();
+		em.remove(t);
+		em.getTransaction().commit();
 	}
 
 	@Override
 	public Actor get(Object pk) {
-		// TODO Auto-generated method stub
-		return null;
+		return ConnDB.getEntityManager().find(Actor.class, pk);
 	}
 
 	@Override
 	public List<Actor> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		return ConnDB.getEntityManager().createQuery("SELECT a FROM Actor a", Actor.class).getResultList();
 	}
 
 }
