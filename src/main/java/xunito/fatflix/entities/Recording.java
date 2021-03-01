@@ -1,10 +1,12 @@
 package xunito.fatflix.entities;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
@@ -17,9 +19,12 @@ public abstract class Recording {
 	private String title;
 	private int releaseYear;
 	
-	private ArrayList<Director> directors;
-	private ArrayList<Actor> actors;
-	private ArrayList<Producer> producers;
+	@ManyToMany
+	private List<Director> directors;
+	@ManyToMany
+	private List<Actor> actors;
+	@ManyToMany
+	private List<Producer> producers;
 	
 	public Recording(String title, int releaseYear) {
 		super();
@@ -63,7 +68,7 @@ public abstract class Recording {
 		this.releaseYear = releaseYear;
 	}
 	
-	public ArrayList<Director> getDirectors() {
+	public List<Director> getDirectors() {
 		return directors;
 	}
 
@@ -71,7 +76,7 @@ public abstract class Recording {
 		this.directors = directors;
 	}
 
-	public ArrayList<Actor> getActors() {
+	public List<Actor> getActors() {
 		return actors;
 	}
 
@@ -79,7 +84,7 @@ public abstract class Recording {
 		this.actors = actors;
 	}
 
-	public ArrayList<Producer> getProducers() {
+	public List<Producer> getProducers() {
 		return producers;
 	}
 

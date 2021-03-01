@@ -35,7 +35,7 @@ public class AlertUtil {
 			exceptionText = sw.toString();
 		}
 
-		Label label = new Label("A pilha de execução da exceção é:");
+		Label label = new Label("The execution stack is:");
 
 		TextArea textArea = new TextArea(exceptionText);
 		textArea.setEditable(false);
