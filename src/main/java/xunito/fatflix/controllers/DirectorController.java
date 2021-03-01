@@ -7,6 +7,7 @@ public class DirectorController {
 	
 	@FXML
 	public void openDirectorRegistration() {
+		App.changeResizable();
 		App.setRoot("directorRegister");
 	}
 	

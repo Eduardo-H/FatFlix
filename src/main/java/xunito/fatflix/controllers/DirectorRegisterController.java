@@ -73,30 +73,8 @@ public class DirectorRegisterController {
 	public void handleFemaleRadioClick() {
 		maleRadio.setSelected(false);
 	}
-	
-	@FXML
-    private void logout() {
-    	App.changeResizable();
-    	App.setRoot("login");
-    }
-	
-	@FXML
-	public void openHomeWindow() {
-		App.setRoot("main");
-	}
-	
-	@FXML
-	public void openMoviesWindow() {
-		App.setRoot("movies");
-	}
-	
-	@FXML
-	public void openTVShowsWindow() {
-		App.setRoot("tvShows");
-	}
-	
-	@FXML
-	public void openDirectorWindow() {
+
+	public void cancel() {
 		App.setRoot("directors");
 	}
 }
