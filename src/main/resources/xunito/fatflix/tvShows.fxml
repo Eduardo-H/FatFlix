@@ -69,7 +69,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#openDirectorsWindow" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>

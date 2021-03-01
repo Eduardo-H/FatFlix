@@ -21,4 +21,9 @@ public class TvShowController {
 	public void openMoviesScreen() {
 		App.setRoot("movies");
 	}
+	
+	@FXML
+    public void openDirectorsWindow() {
+    	App.setRoot("directors");
+    }
 }

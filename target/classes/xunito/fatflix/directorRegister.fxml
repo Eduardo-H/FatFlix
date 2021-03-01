@@ -160,7 +160,7 @@
                         </Label>
                         <HBox alignment="CENTER_LEFT">
                            <children>
-                              <JFXRadioButton fx:id="maleRadio" text="Male" textFill="WHITE">
+                              <JFXRadioButton fx:id="maleRadio" onAction="#handleMaleRadioClick" text="Male" textFill="WHITE">
                                  <selectedColor>
                                     <Color red="0.1568627506494522" green="0.8745098114013672" blue="0.6000000238418579" />
                                  </selectedColor>
@@ -171,7 +171,7 @@
                                     <Insets right="25.0" />
                                  </HBox.margin>
                               </JFXRadioButton>
-                              <JFXRadioButton fx:id="femaleRadio" text="Female" textFill="WHITE">
+                              <JFXRadioButton fx:id="femaleRadio" onAction="#handleFemaleRadioClick" text="Female" textFill="WHITE">
                                  <selectedColor>
                                     <Color red="0.1568627506494522" green="0.8745098114013672" blue="0.6000000238418579" />
                                  </selectedColor>

@@ -1,9 +1,13 @@
 package xunito.fatflix.controllers;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import xunito.fatflix.AlertUtil;
 import xunito.fatflix.App;
+import xunito.fatflix.db.DirectorDAO;
+import xunito.fatflix.entities.Director;
 
 public class DirectorRegisterController {
 	
@@ -20,7 +24,43 @@ public class DirectorRegisterController {
 	
 	
 	public void save() {
+		String name = nameTxt.getText();
+		String birthDate = birthDateTxt.getText();
+		String nationality = nationalityTxt.getText();
 		
+		if (name.isBlank()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Type the director's name.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (birthDate.isBlank()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Type the director's birth date.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (nationality.isBlank()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Type the director's nationality.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (!maleRadio.isSelected() && !femaleRadio.isSelected()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Select the director's sex.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		String sex;
+		
+		if (maleRadio.isSelected()) {
+			sex = maleRadio.getText();
+		} else {
+			sex = femaleRadio.getText();
+		}
+		
+		new DirectorDAO().persist(new Director(name, birthDate, nationality, sex));
 	}
 	
 	public void handleMaleRadioClick() {

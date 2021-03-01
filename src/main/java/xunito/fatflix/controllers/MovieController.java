@@ -30,4 +30,8 @@ public class MovieController {
 		App.setRoot("movieRegister");
 	}
 	
+	@FXML
+    public void openDirectorsWindow() {
+    	App.setRoot("directors");
+    }
 }
