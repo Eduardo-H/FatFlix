@@ -4,15 +4,17 @@ import java.util.List;
 
 import javax.persistence.EntityManager;
 
-import xunito.fatflix.entities.Actor;
 import xunito.fatflix.entities.Director;
 
 public class DirectorDAO implements InterfaceDAO<Director> {
 
 	@Override
 	public void persist(Director t) {
-		// TODO Auto-generated method stub
+		EntityManager em = ConnDB.getEntityManager();
 		
+		em.getTransaction().begin();
+		em.persist(t);
+		em.getTransaction().commit();
 	}
 
 	@Override

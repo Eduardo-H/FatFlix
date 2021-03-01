@@ -23,6 +23,7 @@ public class DirectorRegisterController {
 	private RadioButton femaleRadio;
 	
 	
+	@FXML
 	public void save() {
 		String name = nameTxt.getText();
 		String birthDate = birthDateTxt.getText();
@@ -61,6 +62,8 @@ public class DirectorRegisterController {
 		}
 		
 		new DirectorDAO().persist(new Director(name, birthDate, nationality, sex));
+		
+		App.setRoot("directors");
 	}
 	
 	public void handleMaleRadioClick() {
