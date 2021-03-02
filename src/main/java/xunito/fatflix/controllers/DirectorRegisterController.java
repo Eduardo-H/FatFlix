@@ -6,7 +6,6 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import xunito.fatflix.AlertUtil;
 import xunito.fatflix.App;
-import xunito.fatflix.FXMLUtil;
 import xunito.fatflix.db.DirectorDAO;
 import xunito.fatflix.entities.Director;
 

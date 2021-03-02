@@ -10,8 +10,11 @@ public class ActorDAO implements InterfaceDAO<Actor> {
 
 	@Override
 	public void persist(Actor t) {
-		// TODO Auto-generated method stub
+		EntityManager em = ConnDB.getEntityManager();
 		
+		em.getTransaction().begin();
+		em.persist(t);
+		em.getTransaction().commit();
 	}
 
 	@Override
