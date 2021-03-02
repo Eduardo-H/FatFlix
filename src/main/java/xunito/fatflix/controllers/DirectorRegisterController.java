@@ -1,9 +1,14 @@
 package xunito.fatflix.controllers;
 
+import java.io.IOException;
+
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 import xunito.fatflix.AlertUtil;
 import xunito.fatflix.App;
 import xunito.fatflix.db.DirectorDAO;
@@ -66,8 +71,18 @@ public class DirectorRegisterController {
 		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Director saved in the database.");
 		alert.show();
 		
-		App.changeResizable();
-		App.setRoot("directors");
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("directors.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = (Stage) nameTxt.getScene().getWindow();
+			stage.setResizable(true);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the directors window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
 	}
 	
 	public void handleMaleRadioClick() {
@@ -79,7 +94,17 @@ public class DirectorRegisterController {
 	}
 
 	public void cancel() {
-		App.changeResizable();
-		App.setRoot("directors");
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("directors.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = (Stage) nameTxt.getScene().getWindow();
+			stage.setResizable(true);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the directors window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
 	}
 }
