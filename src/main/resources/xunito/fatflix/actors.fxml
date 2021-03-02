@@ -91,7 +91,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Producers" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#openProducersWindow" style="-fx-background-color: #333333;" text="Producers" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>

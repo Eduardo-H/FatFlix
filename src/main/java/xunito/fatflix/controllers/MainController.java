@@ -92,4 +92,19 @@ public class MainController {
 			return;
 		}
     }
+    
+    @FXML
+	public void openProducersWindow() {
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("producers.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = (Stage) logo.getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			Alert alert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the producers window.", e);
+			alert.showAndWait();
+			return;
+		}
+	}
 }
