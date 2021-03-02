@@ -80,7 +80,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
+                  <Button fx:id="actorsBtn" mnemonicParsing="false" onAction="#openActorsWindow" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>

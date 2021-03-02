@@ -36,7 +36,7 @@
                         <Insets left="50.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#openHomeScreen" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
+                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#openHomeWindow" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -55,7 +55,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="tvShowsBtn" mnemonicParsing="false" onAction="#openTVShowsScreen" style="-fx-background-color: #333333;" text="TV Shows" textFill="WHITE">
+                  <Button fx:id="tvShowsBtn" mnemonicParsing="false" onAction="#openTVShowsWindow" style="-fx-background-color: #333333;" text="TV Shows" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -66,7 +66,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openDirectorsWindow" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
+                  <Button fx:id="directorsBtn" mnemonicParsing="false" onAction="#openDirectorsWindow" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -77,7 +77,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
+                  <Button fx:id="actorsBtn" mnemonicParsing="false" onAction="#openActorsWindow" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -133,7 +133,7 @@
                         <Font name="FreeSans" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="newMovieBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#registerMovie" style="-fx-background-color: #3E3E3E;" text="+ Add new movie" textFill="#28df99" GridPane.columnIndex="1">
+                  <Button fx:id="newMovieBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#addMovie" style="-fx-background-color: #3E3E3E;" text="+ Add new movie" textFill="#28df99" GridPane.columnIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

@@ -13,17 +13,22 @@ public class TvShowController {
     }
 	
 	@FXML
-	public void openHomeScreen() {
+	public void openHomeWindow() {
 		App.setRoot("main");
 	}
 	
 	@FXML
-	public void openMoviesScreen() {
+	public void openMoviesWindow() {
 		App.setRoot("movies");
 	}
 	
 	@FXML
     public void openDirectorsWindow() {
     	App.setRoot("directors");
+    }
+	
+	@FXML
+    public void openActorsWindow() {
+    	App.setRoot("actors");
     }
 }

@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.controllers.MovieController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.controllers.ActorController">
    <children>
       <GridPane layoutX="20.0" layoutY="20.0" prefHeight="70.0" style="-fx-background-color: #333333;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <columnConstraints>
@@ -47,13 +47,16 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Movies" textFill="#28df99" underline="true">
+                  <Button mnemonicParsing="false" onAction="#openMoviesWindow" style="-fx-background-color: #333333;" text="Movies" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
                      <HBox.margin>
                         <Insets left="20.0" />
                      </HBox.margin>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
                   </Button>
                   <Button fx:id="tvShowsBtn" mnemonicParsing="false" onAction="#openTVShowsWindow" style="-fx-background-color: #333333;" text="TV Shows" textFill="WHITE">
                      <font>
@@ -77,7 +80,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="actorsBtn" mnemonicParsing="false" onAction="#openActorsWindow" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
+                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Actors" textFill="#28df99" underline="true">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -85,7 +88,7 @@
                         <Insets left="20.0" />
                      </HBox.margin>
                      <cursor>
-                        <Cursor fx:constant="HAND" />
+                        <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
                   <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Producers" textFill="WHITE">
@@ -120,20 +123,20 @@
       <VBox layoutY="3.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
          <children>
             <GridPane>
-              <columnConstraints>
-                <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
-                <ColumnConstraints halignment="RIGHT" hgrow="NEVER" percentWidth="50.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
+               <columnConstraints>
+                  <ColumnConstraints halignment="LEFT" hgrow="NEVER" minWidth="10.0" percentWidth="50.0" prefWidth="100.0" />
+                  <ColumnConstraints halignment="RIGHT" hgrow="NEVER" percentWidth="50.0" />
+               </columnConstraints>
+               <rowConstraints>
+                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+               </rowConstraints>
                <children>
-                  <Label text="Movies" textFill="#28df99">
+                  <Label text="Actors" textFill="#28df99">
                      <font>
                         <Font name="FreeSans" size="24.0" />
                      </font>
                   </Label>
-                  <Button fx:id="newMovieBtn" alignment="BOTTOM_LEFT" mnemonicParsing="false" onAction="#addMovie" style="-fx-background-color: #3E3E3E;" text="+ Add new movie" textFill="#28df99" GridPane.columnIndex="1">
+                  <Button alignment="BOTTOM_LEFT" mnemonicParsing="false" style="-fx-background-color: #3E3E3E;" text="+ Add new actor" textFill="#28df99" GridPane.columnIndex="1">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>
@@ -146,7 +149,7 @@
                   <Insets />
                </VBox.margin>
             </GridPane>
-            <ListView maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #333333; -fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
+            <ListView fx:id="directorsList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #333333; -fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

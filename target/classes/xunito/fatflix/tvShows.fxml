@@ -36,7 +36,7 @@
                         <Insets left="50.0" />
                      </HBox.margin>
                   </ImageView>
-                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#openHomeScreen" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
+                  <Button fx:id="homeBtn" mnemonicParsing="false" onAction="#openHomeWindow" style="-fx-background-color: #333333;" text="Home" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -47,7 +47,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:id="moviesBtn" mnemonicParsing="false" onAction="#openMoviesScreen" style="-fx-background-color: #333333;" text="Movies" textFill="WHITE">
+                  <Button fx:id="moviesBtn" mnemonicParsing="false" onAction="#openMoviesWindow" style="-fx-background-color: #333333;" text="Movies" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Cursor fx:constant="DEFAULT" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" onAction="#openDirectorsWindow" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
+                  <Button fx:id="directorsBtn" mnemonicParsing="false" onAction="#openDirectorsWindow" style="-fx-background-color: #333333;" text="Directors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>
@@ -80,7 +80,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button mnemonicParsing="false" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
+                  <Button fx:id="actorsBtn" mnemonicParsing="false" onAction="#openActorsWindow" style="-fx-background-color: #333333;" text="Actors" textFill="WHITE">
                      <font>
                         <Font name="FreeSans" size="14.0" />
                      </font>

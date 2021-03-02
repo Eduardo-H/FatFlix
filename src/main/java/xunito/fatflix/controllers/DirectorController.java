@@ -60,4 +60,8 @@ public class DirectorController implements Initializable {
 		App.setRoot("tvShows");
 	}
 
+	@FXML
+	public void openActorsWindow() {
+		App.setRoot("actors");
+	}
 }

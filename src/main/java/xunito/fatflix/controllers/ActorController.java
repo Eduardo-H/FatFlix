@@ -1,37 +1,33 @@
 package xunito.fatflix.controllers;
 
-import xunito.fatflix.App;
 import javafx.fxml.FXML;
-import javafx.scene.image.ImageView;
+import xunito.fatflix.App;
 
-public class MainController {
+public class ActorController {
 
 	@FXML
-	private ImageView logo;
-	
-    @FXML
     private void logout() {
     	App.changeResizable();
     	App.setRoot("login");
     }
-    
-    @FXML
+	
+	@FXML
+	public void openHomeWindow() {
+		App.setRoot("main");
+	}
+	
+	@FXML
 	public void openMoviesWindow() {
 		App.setRoot("movies");
 	}
-    
-    @FXML
+	
+	@FXML
 	public void openTVShowsWindow() {
 		App.setRoot("tvShows");
 	}
-    
-    @FXML
+	
+	@FXML
     public void openDirectorsWindow() {
     	App.setRoot("directors");
-    }
-    
-    @FXML
-    public void openActorsWindow() {
-    	App.setRoot("actors");
     }
 }

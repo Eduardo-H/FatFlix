@@ -9,6 +9,12 @@ public class MovieController {
 	@FXML
 	private ImageView logo;
 	
+	
+	@FXML
+	public void addMovie() {
+		App.setRoot("movieRegister");
+	}
+	
 	@FXML
     private void logout() {
     	App.changeResizable();
@@ -16,22 +22,22 @@ public class MovieController {
     }
 	
 	@FXML
-	public void openHomeScreen() {
+	public void openHomeWindow() {
 		App.setRoot("main");
 	}
 	
 	@FXML
-	public void openTVShowsScreen() {
+	public void openTVShowsWindow() {
 		App.setRoot("tvShows");
-	}
-	
-	@FXML
-	public void registerMovie() {
-		App.setRoot("movieRegister");
 	}
 	
 	@FXML
     public void openDirectorsWindow() {
     	App.setRoot("directors");
+    }
+	
+	@FXML
+    public void openActorsWindow() {
+    	App.setRoot("actors");
     }
 }
