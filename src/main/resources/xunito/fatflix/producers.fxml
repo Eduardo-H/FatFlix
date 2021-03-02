@@ -149,11 +149,26 @@
                   <Insets />
                </VBox.margin>
             </GridPane>
-            <ListView fx:id="producersList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" style="-fx-background-color: #333333; -fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
+            <ListView fx:id="producersList" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" onMouseClicked="#handleListClick" style="-fx-background-color: #333333; -fx-background-radius: 5px;" VBox.vgrow="ALWAYS">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </ListView>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button fx:id="viewBtn" mnemonicParsing="false" onAction="#handleViewClick" style="-fx-background-color: #28df99;" text="View" textFill="#3e3e3e">
+                     <font>
+                        <Font name="FreeSans" size="13.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+                     </padding>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
          </children>
          <padding>
             <Insets bottom="20.0" left="20.0" right="20.0" top="40.0" />
