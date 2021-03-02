@@ -2,6 +2,7 @@ package xunito.fatflix.db;
 
 import java.util.List;
 
+import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
 
 import xunito.fatflix.entities.Director;
@@ -11,10 +12,21 @@ public class DirectorDAO implements InterfaceDAO<Director> {
 	@Override
 	public void persist(Director t) {
 		EntityManager em = ConnDB.getEntityManager();
-		
-		em.getTransaction().begin();
-		em.persist(t);
-		em.getTransaction().commit();
+		try {
+			em.getTransaction().begin();
+			em.persist(t);
+			em.getTransaction().commit();
+		} catch (EntityExistsException e) {
+			em.getTransaction().rollback();
+			Director original = get(t.getId());
+			em.getTransaction().begin();
+			
+			original.setName(t.getName());
+			original.setBirthDate(t.getBirthDate());
+			original.setNationality(t.getNationality());
+			original.setSex(t.getSex());
+			em.getTransaction().commit();
+		}
 	}
 
 	@Override

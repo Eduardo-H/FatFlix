@@ -28,6 +28,7 @@ public class ActorRegisterController {
 	@FXML
 	private RadioButton femaleRadio;
 	
+	private int actorId;
 	
 	@FXML
 	public void save() {
@@ -87,11 +88,33 @@ public class ActorRegisterController {
 			sex = femaleRadio.getText();
 		}
 		
-		new ActorDAO().persist(new Actor(name, birthDate, nationality, sex, transformedHeight));
+		Actor actor = new Actor(name, birthDate, nationality, sex, transformedHeight);
+		
+		if (actorId > 0) {
+			actor.setId(actorId);
+		}
+		
+		new ActorDAO().persist(actor);
 		
 		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Actor saved in the database.");
 		alert.show();
 		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("actors.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = (Stage) nameTxt.getScene().getWindow();
+			stage.setResizable(true);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the actor registration window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
+	}
+	
+	@FXML
+	public void cancel() {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("actors.fxml"));
 			Scene scene = new Scene(fxmlLoader.load());
@@ -113,19 +136,8 @@ public class ActorRegisterController {
 	public void handleFemaleRadioClick() {
 		maleRadio.setSelected(false);
 	}
-
-	public void cancel() {
-		try {
-			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("actors.fxml"));
-			Scene scene = new Scene(fxmlLoader.load());
-			Stage stage = (Stage) nameTxt.getScene().getWindow();
-			stage.setResizable(true);
-			stage.setScene(scene);
-			stage.show();
-		} catch (IOException e) {
-			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the actor registration window.", e);
-			errorAlert.showAndWait();
-			return;
-		}
+	
+	public void setActorId(int id) {
+		this.actorId = id;
 	}
 }

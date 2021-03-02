@@ -27,6 +27,7 @@ public class DirectorRegisterController {
 	@FXML
 	private RadioButton femaleRadio;
 	
+	private int directorId;
 	
 	@FXML
 	public void save() {
@@ -66,7 +67,12 @@ public class DirectorRegisterController {
 			sex = femaleRadio.getText();
 		}
 		
-		new DirectorDAO().persist(new Director(name, birthDate, nationality, sex));
+		Director director = new Director(name, birthDate, nationality, sex);
+		
+		if (directorId > 0)
+			director.setId(directorId);
+		
+		new DirectorDAO().persist(director);
 		
 		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Director saved in the database.");
 		alert.show();
@@ -106,5 +112,9 @@ public class DirectorRegisterController {
 			errorAlert.showAndWait();
 			return;
 		}
+	}
+	
+	public void setDirectorId(int id) {
+		this.directorId = id;
 	}
 }

@@ -48,6 +48,9 @@ public class DirectorController implements Initializable {
 			stage.setResizable(false);
 			stage.setScene(scene);
 			stage.show();
+			
+			DirectorRegisterController controller = fxmlLoader.getController();
+			controller.setDirectorId(0);
 		} catch (IOException e) {
 			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the director registration window.", e);
 			errorAlert.showAndWait();

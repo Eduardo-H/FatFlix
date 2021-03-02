@@ -24,6 +24,9 @@ public class ActorController implements Initializable {
 	@FXML
 	private ListView<String> actorsList;
 	
+	
+	
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		getAllActors();
@@ -129,5 +132,5 @@ public class ActorController implements Initializable {
 			return;
 		}
     }
-	
+
 }
