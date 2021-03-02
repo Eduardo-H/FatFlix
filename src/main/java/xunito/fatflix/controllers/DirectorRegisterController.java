@@ -6,6 +6,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
 import xunito.fatflix.AlertUtil;
 import xunito.fatflix.App;
+import xunito.fatflix.FXMLUtil;
 import xunito.fatflix.db.DirectorDAO;
 import xunito.fatflix.entities.Director;
 
@@ -63,6 +64,10 @@ public class DirectorRegisterController {
 		
 		new DirectorDAO().persist(new Director(name, birthDate, nationality, sex));
 		
+		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Director saved in the database.");
+		alert.show();
+		
+		App.changeResizable();
 		App.setRoot("directors");
 	}
 	
@@ -75,6 +80,7 @@ public class DirectorRegisterController {
 	}
 
 	public void cancel() {
+		App.changeResizable();
 		App.setRoot("directors");
 	}
 }

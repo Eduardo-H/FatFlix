@@ -1,12 +1,13 @@
 package xunito.fatflix;
 
 import java.io.IOException;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 
 public class FXMLUtil {
-
+	
 	public static Scene loadScene(String fxml) {
 		try {
 			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
@@ -24,5 +25,5 @@ public class FXMLUtil {
 			return null;
 		}
 	}
-	
+
 }

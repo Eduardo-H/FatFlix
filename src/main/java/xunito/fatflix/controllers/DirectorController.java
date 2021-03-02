@@ -1,9 +1,37 @@
 package xunito.fatflix.controllers;
 
-import javafx.fxml.FXML;
-import xunito.fatflix.App;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
-public class DirectorController {
+import javafx.collections.FXCollections;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.ListView;
+import xunito.fatflix.App;
+import xunito.fatflix.db.DirectorDAO;
+import xunito.fatflix.entities.Director;
+
+public class DirectorController implements Initializable {
+	
+	@FXML
+	private ListView<String> directorsList;
+	
+	
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		getAllDirectors();
+	}
+	
+	public void getAllDirectors() {
+		List<String> directors = new ArrayList<>();
+		
+		for (Director director : new DirectorDAO().getAll())
+			directors.add(director.getName());
+		
+		directorsList.setItems(FXCollections.observableArrayList(directors));
+	}
 	
 	@FXML
 	public void openDirectorRegistration() {
@@ -31,4 +59,5 @@ public class DirectorController {
 	public void openTVShowsWindow() {
 		App.setRoot("tvShows");
 	}
+
 }
