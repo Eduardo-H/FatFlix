@@ -83,7 +83,7 @@ public class ProducerViewController implements Initializable {
 			stage.show();
 			
 			ProducerRegisterController controller = fxmlLoader.getController();
-			controller.setProducerId(producer.getId());
+			controller.setProducerNam(producer.getName());
 		} catch (IOException e) {
 			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the producer registration window.", e);
 			errorAlert.showAndWait();

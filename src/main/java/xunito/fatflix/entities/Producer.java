@@ -7,27 +7,19 @@ import javax.persistence.Id;
 
 @Entity
 public class Producer {
-	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO) // Auto increment
-	private int id;
-	
 	private String name;
 	private String foundation;
 	
+	
+	public Producer() {
+		
+	}
 	
 	public Producer(String name, String foundation) {
 		super();
 		this.name = name;
 		this.foundation = foundation;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
 	}
 
 	public String getName() {

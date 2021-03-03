@@ -19,10 +19,8 @@ public class ProducerDAO implements InterfaceDAO<Producer> {
 			em.getTransaction().commit();
 		} catch (EntityExistsException e) {
 			em.getTransaction().rollback();
-			Producer original = get(t.getId());
+			Producer original = get(t.getName());
 			em.getTransaction().begin();
-			
-			original.setName(t.getName());
 			original.setFoundation(t.getFoundation());
 			em.getTransaction().commit();
 		}

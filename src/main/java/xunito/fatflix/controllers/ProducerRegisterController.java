@@ -20,7 +20,7 @@ public class ProducerRegisterController {
 	@FXML
 	private TextField foundationDateTxt;
 	
-	private int producerId;
+	private String producerName;
 	
 	
 	@FXML
@@ -40,13 +40,7 @@ public class ProducerRegisterController {
 			return;
 		}
 		
-		Producer producer = new Producer(name, foundation);
-		
-		if (producerId > 0) {
-			producer.setId(producerId);
-		}
-		
-		new ProducerDAO().persist(producer);
+		new ProducerDAO().persist(new Producer(name, foundation));
 		
 		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Producer saved in the database.");
 		alert.show();
@@ -81,14 +75,14 @@ public class ProducerRegisterController {
 		}
 	}
 	
-	public void setProducerId(int id) {
-		this.producerId = id;
+	public void setProducerNam(String name) {
+		this.producerName = name;
 		setFields();
 	}
 	
 	public void setFields() {
-		if (producerId > 0) {
-			Producer producer = new ProducerDAO().get(producerId);
+		if (producerName != null) {
+			Producer producer = new ProducerDAO().get(producerName);
 			nameTxt.setText(producer.getName());
 			foundationDateTxt.setText(producer.getFoundation());
 		}

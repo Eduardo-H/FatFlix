@@ -41,7 +41,6 @@ public class ProducerController implements Initializable {
 		
 		for (Producer producer : new ProducerDAO().getAll()) {
 			producers.add(producer.getName());
-			pIds.add(producer.getId());
 		}
 
 		producersList.setItems(FXCollections.observableArrayList(producers));
@@ -58,9 +57,8 @@ public class ProducerController implements Initializable {
 	}
 
 	public void handleViewClick() {
-		if (producersList.getSelectionModel().selectedItemProperty().getValue() != null) {
-			int producerId = ids.get(producersList.getSelectionModel().getSelectedIndex());
-			
+		String name = producersList.getSelectionModel().selectedItemProperty().getValue();
+		if (name != null) {
 			try {
 				FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("producerView.fxml"));
 				Scene scene = new Scene(fxmlLoader.load());
@@ -70,7 +68,7 @@ public class ProducerController implements Initializable {
 				stage.show();
 				
 				ProducerViewController controller = fxmlLoader.getController();
-				controller.setProducer(new ProducerDAO().get(producerId));
+				controller.setProducer(new ProducerDAO().get(name));
 			} catch (IOException e) {
 				Alert alert = AlertUtil.error("Erro", "Inexisting file",
 						"Error trying to load the producer visualization window.", e);
@@ -90,7 +88,7 @@ public class ProducerController implements Initializable {
 			stage.setResizable(false);
 			stage.show();
 			ProducerRegisterController controller = fxmlLoader.getController();
-			controller.setProducerId(0);
+			controller.setProducerNam(null);
 		} catch (IOException e) {
 			Alert alert = AlertUtil.error("Erro", "Inexisting file",
 					"Error trying to load the producer registration window.", e);
