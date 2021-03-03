@@ -22,6 +22,7 @@ public class ProducerRegisterController {
 	
 	private int producerId;
 	
+	
 	@FXML
 	public void save() {
 		String name = nameTxt.getText();
@@ -40,7 +41,6 @@ public class ProducerRegisterController {
 		}
 		
 		Producer producer = new Producer(name, foundation);
-		
 		
 		if (producerId > 0) {
 			producer.setId(producerId);
@@ -83,6 +83,15 @@ public class ProducerRegisterController {
 	
 	public void setProducerId(int id) {
 		this.producerId = id;
+		setFields();
+	}
+	
+	public void setFields() {
+		if (producerId > 0) {
+			Producer producer = new ProducerDAO().get(producerId);
+			nameTxt.setText(producer.getName());
+			foundationDateTxt.setText(producer.getFoundation());
+		}
 	}
 	
 }

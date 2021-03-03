@@ -75,6 +75,19 @@ public class ProducerViewController implements Initializable {
 	}
 	
 	public void edit() {
-		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("producerRegister.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = (Stage) nameLbl.getScene().getWindow();
+			stage.setScene(scene);
+			stage.show();
+			
+			ProducerRegisterController controller = fxmlLoader.getController();
+			controller.setProducerId(producer.getId());
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the producer registration window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
 	}
 }
