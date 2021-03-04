@@ -2,8 +2,8 @@ package xunito.fatflix.db;
 
 import java.util.List;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 
 import xunito.fatflix.entities.Director;
 
@@ -16,7 +16,7 @@ public class DirectorDAO implements InterfaceDAO<Director> {
 			em.getTransaction().begin();
 			em.persist(t);
 			em.getTransaction().commit();
-		} catch (EntityExistsException e) {
+		} catch (PersistenceException e) {
 			em.getTransaction().rollback();
 			Director original = get(t.getId());
 			em.getTransaction().begin();

@@ -11,7 +11,9 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import xunito.fatflix.AlertUtil;
 import xunito.fatflix.App;
+import xunito.fatflix.db.ActorDAO;
 import xunito.fatflix.db.DirectorDAO;
+import xunito.fatflix.entities.Actor;
 import xunito.fatflix.entities.Director;
 
 public class DirectorRegisterController {
@@ -116,5 +118,21 @@ public class DirectorRegisterController {
 	
 	public void setDirectorId(int id) {
 		this.directorId = id;
+		setFields();
+	}
+	
+	public void setFields() {
+		if (directorId > 0) {
+			Director director = new DirectorDAO().get(directorId);
+			nameTxt.setText(director.getName());
+			birthDateTxt.setText(director.getBirthDate());
+			nationalityTxt.setText(director.getNationality());
+			
+			if (director.getSex().contentEquals("Male")) {
+				maleRadio.setSelected(true);
+			} else if (director.getSex().contentEquals("Female")) {
+				femaleRadio.setSelected(true);
+			}
+		}
 	}
 }

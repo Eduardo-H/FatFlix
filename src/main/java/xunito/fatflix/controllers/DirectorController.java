@@ -12,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.stage.Stage;
 import xunito.fatflix.AlertUtil;
@@ -23,20 +24,30 @@ public class DirectorController implements Initializable {
 	
 	@FXML
 	private ListView<String> directorsList;
+	@FXML
+	private Button viewBtn;
+	
+	private ArrayList<Integer> ids;
 	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		getAllDirectors();
+		ids = getAllDirectors();
+		viewBtn.setDisable(true);
 	}
 	
-	public void getAllDirectors() {
+	public ArrayList<Integer> getAllDirectors() {
 		List<String> directors = new ArrayList<>();
+		ArrayList<Integer> directorIds = new ArrayList();
 		
-		for (Director director : new DirectorDAO().getAll())
+		for (Director director : new DirectorDAO().getAll()) {
 			directors.add(director.getName());
+			directorIds.add(director.getId());
+		}
 		
 		directorsList.setItems(FXCollections.observableArrayList(directors));
+		
+		return directorIds;
 	}
 	
 	@FXML
@@ -55,6 +66,37 @@ public class DirectorController implements Initializable {
 			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the director registration window.", e);
 			errorAlert.showAndWait();
 			return;
+		}
+	}
+	
+	public void handleListClick() {
+		if (directorsList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			viewBtn.setDisable(false);
+		} else {
+			viewBtn.setDisable(true);
+		}
+	}
+	
+	public void handleViewClick() {
+		if (directorsList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			int directorId = ids.get(directorsList.getSelectionModel().getSelectedIndex());
+			
+			try {
+				FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("directorView.fxml"));
+				Scene scene = new Scene(fxmlLoader.load());
+				Stage stage = (Stage) directorsList.getScene().getWindow();
+				stage.setScene(scene);
+				stage.setResizable(false);
+				stage.show();
+				
+				DirectorViewController controller = fxmlLoader.getController();
+				controller.setDirector(new DirectorDAO().get(directorId));
+			} catch (IOException e) {
+				Alert alert = AlertUtil.error("Erro", "Inexisting file",
+						"Error trying to load the director visualization window.", e);
+				alert.showAndWait();
+				return;
+			}		
 		}
 	}
 	
