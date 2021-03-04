@@ -154,7 +154,7 @@
                         <Insets right="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="removeProducerBtn" mnemonicParsing="false" onAction="#removeDirector" style="-fx-background-color: #3E3E3E;" text="- Remove producer" textFill="#28df99">
+                  <Button fx:id="removeProducerBtn" mnemonicParsing="false" onAction="#removeProducer" style="-fx-background-color: #3E3E3E;" text="- Remove producer" textFill="#28df99">
                      <font>
                         <Font name="FreeSans" size="13.0" />
                      </font>

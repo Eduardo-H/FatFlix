@@ -3,6 +3,7 @@ package xunito.fatflix.controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.collections.FXCollections;
@@ -17,8 +18,10 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import xunito.fatflix.AlertUtil;
 import xunito.fatflix.App;
+import xunito.fatflix.db.MovieDAO;
 import xunito.fatflix.entities.Actor;
 import xunito.fatflix.entities.Director;
+import xunito.fatflix.entities.Movie;
 import xunito.fatflix.entities.Producer;
 
 public class MovieRegisterController implements Initializable {
@@ -31,11 +34,11 @@ public class MovieRegisterController implements Initializable {
 	private TextField lenghtTxt;
 	
 	@FXML
-	private ListView directorsList;
+	private ListView<String> directorsList;
 	@FXML
-	private ListView actorsList;
+	private ListView<String> actorsList;
 	@FXML
-	private ListView producersList;
+	private ListView<String> producersList;
 	@FXML
 	private Button removeDirectorBtn;
 	@FXML
@@ -43,9 +46,9 @@ public class MovieRegisterController implements Initializable {
 	@FXML
 	private Button removeProducerBtn;
 	
-	private ArrayList<Director> directors;
-	private ArrayList<Actor> actors;
-	private ArrayList<Producer> producers;
+	private List<Director> directors;
+	private List<Actor> actors;
+	private List<Producer> producers;
 	
 	
 	@Override
@@ -54,14 +57,80 @@ public class MovieRegisterController implements Initializable {
 		removeActorBtn.setVisible(false);
 		removeProducerBtn.setVisible(false);
 		
-		directors = new ArrayList();
-		actors = new ArrayList();
-		producers = new ArrayList();
+		directors = new ArrayList<Director>();
+		actors = new ArrayList<Actor>();
+		producers = new ArrayList<Producer>();
 	}
 	
 	@FXML
 	public void save() {
+		String title = titleTxt.getText();
+		String release = releaseYearTxt.getText();
+		String lenght = lenghtTxt.getText();
 		
+		if (title.isBlank()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Type the movie's title.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (release.isBlank()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Type the movie's year of release.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		int transformedRelease = 0;
+		
+		try {
+			transformedRelease = Integer.parseInt(release);
+		} catch (NumberFormatException e) {
+			Alert alert = AlertUtil.error("Error!", "Invalid height formtat.", "Inable to convert the informed value into a integer number.", e);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (lenght.isBlank()) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "Type the movie's lenght.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (directors.size() < 1) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "You need at least one director, please select one.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		if (actors.size() < 1) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "You need at least one actor, please select one.", null);
+			alert.showAndWait();
+			return;
+		}
+
+		if (producers.size() < 1) {
+			Alert alert = AlertUtil.error("Error!", "Error!", "You need at least one producer, please select one.", null);
+			alert.showAndWait();
+			return;
+		}
+		
+		new MovieDAO().persist(new Movie(title, transformedRelease, lenght, directors, actors, producers));
+		
+		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Movie saved in the database.");
+		alert.show();
+		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("movies.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = (Stage) titleTxt.getScene().getWindow();
+			stage.setResizable(true);
+			stage.setScene(scene);
+			stage.show();
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the movies window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
 	}
 	
 	public void addDirector() {
@@ -83,35 +152,87 @@ public class MovieRegisterController implements Initializable {
 	}
 	
 	public void removeDirector() {
-		
+		if (directorsList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			directors.remove(directorsList.getSelectionModel().getSelectedIndex());
+			updateDirectorsList();
+			removeDirectorBtn.setVisible(false);
+		}
 	}
 	
 	public void addActor() {
-		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("actorSelection.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = new Stage();
+			stage.setResizable(false);
+			stage.setScene(scene);
+			stage.show();
+			
+			ActorSelectionController controller = fxmlLoader.getController();
+			controller.setController(this);
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the actors window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
 	}
 	
 	public void removeActor() {
-		
+		if (actorsList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			actors.remove(actorsList.getSelectionModel().getSelectedIndex());
+			updateActorsList();
+			removeActorBtn.setVisible(false);
+		}
 	}
 	
 	public void addProducer() {
-		
+		try {
+			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("producerSelection.fxml"));
+			Scene scene = new Scene(fxmlLoader.load());
+			Stage stage = new Stage();
+			stage.setResizable(false);
+			stage.setScene(scene);
+			stage.show();
+			
+			ProducerSelectionController controller = fxmlLoader.getController();
+			controller.setController(this);
+		} catch (IOException e) {
+			Alert errorAlert = AlertUtil.error("Erro", "Inexisting file", "Error trying to load the producers window.", e);
+			errorAlert.showAndWait();
+			return;
+		}
 	}
 	
 	public void removeProducer() {
-		
+		if (producersList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			producers.remove(producersList.getSelectionModel().getSelectedIndex());
+			updateProducersList();
+			removeProducerBtn.setVisible(false);
+		}
 	}
 	
 	public void handleDirectorListClick() {
-		
+		if (directorsList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			removeDirectorBtn.setVisible(true);
+		} else {
+			removeDirectorBtn.setVisible(false);
+		}
 	}
 	
 	public void handleActorListClick() {
-			
+		if (actorsList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			removeActorBtn.setVisible(true);
+		} else {
+			removeActorBtn.setVisible(false);
+		}
 	}
 	
 	public void handleProducerListClick() {
-		
+		if (producersList.getSelectionModel().selectedItemProperty().getValue() != null) {
+			removeProducerBtn.setVisible(true);
+		} else {
+			removeProducerBtn.setVisible(false);
+		}
 	}
 	
 	@FXML
@@ -139,12 +260,44 @@ public class MovieRegisterController implements Initializable {
 	
 	public void updateDirectorsList() {
 		directorsList.setItems(null);
-		ArrayList<String> names = new ArrayList();
+		ArrayList<String> names = new ArrayList<String>();
 		
 		for (Director director : directors) {
 			names.add(director.getName());
 		}
 		
 		directorsList.setItems(FXCollections.observableArrayList(names));
+	}
+	
+	public void setActor(Actor actor) {
+		actors.add(actor);
+		updateActorsList();
+	}
+	
+	public void updateActorsList() {
+		actorsList.setItems(null);
+		ArrayList<String> names = new ArrayList<String>();
+		
+		for (Actor actor : actors) {
+			names.add(actor.getName());
+		}
+		
+		actorsList.setItems(FXCollections.observableArrayList(names));
+	}
+	
+	public void setProducer(Producer producer) {
+		producers.add(producer);
+		updateProducersList();
+	}
+	
+	public void updateProducersList() {
+		producersList.setItems(null);
+		ArrayList<String> names = new ArrayList<String>();
+		
+		for (Producer producer : producers) {
+			names.add(producer.getName());
+		}
+		
+		producersList.setItems(FXCollections.observableArrayList(names));
 	}
 }

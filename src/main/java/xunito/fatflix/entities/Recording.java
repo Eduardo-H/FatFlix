@@ -26,6 +26,11 @@ public abstract class Recording {
 	@ManyToMany
 	private List<Producer> producers;
 	
+	
+	public Recording() {
+		
+	}
+	
 	public Recording(String title, int releaseYear) {
 		super();
 		this.title = title;
@@ -35,8 +40,19 @@ public abstract class Recording {
 		producers = new ArrayList<Producer>();
 	}
 	
-	public Recording(String title, int releaseYear, ArrayList<Director> directors, ArrayList<Producer> producers, ArrayList<Actor> actors) {
+	public Recording(String title, int releaseYear, List<Director> directors, List<Producer> producers, List<Actor> actors) {
 		super();
+		this.title = title;
+		this.releaseYear = releaseYear;
+		this.directors = directors;
+		this.producers = producers;
+		this.actors = actors;
+	}
+	
+	public Recording(int id, String title, int releaseYear, List<Director> directors, List<Producer> producers, 
+			List<Actor> actors) {
+		super();
+		this.id = id;
 		this.title = title;
 		this.releaseYear = releaseYear;
 		this.directors = directors;
@@ -72,7 +88,7 @@ public abstract class Recording {
 		return directors;
 	}
 
-	public void setDirectors(ArrayList<Director> directors) {
+	public void setDirectors(List<Director> directors) {
 		this.directors = directors;
 	}
 
@@ -80,7 +96,7 @@ public abstract class Recording {
 		return actors;
 	}
 
-	public void setActors(ArrayList<Actor> actors) {
+	public void setActors(List<Actor> actors) {
 		this.actors = actors;
 	}
 
@@ -88,7 +104,7 @@ public abstract class Recording {
 		return producers;
 	}
 
-	public void setProducers(ArrayList<Producer> producers) {
+	public void setProducers(List<Producer> producers) {
 		this.producers = producers;
 	}
 	
