@@ -139,5 +139,23 @@ public class ActorRegisterController {
 	
 	public void setActorId(int id) {
 		this.actorId = id;
+		setFields();
 	}
+	
+	public void setFields() {
+		if (actorId > 0) {
+			Actor actor = new ActorDAO().get(actorId);
+			nameTxt.setText(actor.getName());
+			birthDateTxt.setText(actor.getBirthDate());
+			nationalityTxt.setText(actor.getNationality());
+			heightTxt.setText(Float.toString(actor.getHeight()));
+			
+			if (actor.getSex().contentEquals("Male")) {
+				maleRadio.setSelected(true);
+			} else if (actor.getSex().contentEquals("Female")) {
+				femaleRadio.setSelected(true);
+			}
+		}
+	}
+	
 }

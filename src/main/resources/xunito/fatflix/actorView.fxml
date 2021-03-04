@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="350.0" style="-fx-background-color: #3E3E3E;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="xunito.fatflix.controllers.ActorViewController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="70.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label text="Actor Visualization" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutY="3.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="70.0">
+         <children>
+            <Label text="Name" textFill="#28df99">
+               <font>
+                  <Font name="FreeSans" size="13.0" />
+               </font>
+            </Label>
+            <Label fx:id="nameLbl" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans" size="15.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </Label>
+            <Label text="Birth Date" textFill="#28df99">
+               <font>
+                  <Font name="FreeSans" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="birthDateLbl" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Nationality" textFill="#28df99">
+               <font>
+                  <Font name="FreeSans" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="nationalityLbl" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Sex" textFill="#28df99">
+               <font>
+                  <Font name="FreeSans" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="sexLbl" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans" size="15.0" />
+               </font>
+            </Label>
+            <Label text="Height" textFill="#28df99">
+               <font>
+                  <Font name="FreeSans" size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="heightLbl" text="Label" textFill="WHITE">
+               <font>
+                  <Font name="FreeSans" size="15.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_RIGHT">
+               <children>
+                  <Button alignment="CENTER" mnemonicParsing="false" onAction="#back" style="-fx-background-color: #3e3e3e;" text="Back" textFill="#28df99">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="8.0" right="20.0" top="8.0" />
+                     </padding>
+                     <HBox.margin>
+                        <Insets right="95.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="FreeSans" size="13.0" />
+                     </font>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#delete" style="-fx-background-color: DF5E5E;" text="Delete" textFill="WHITE">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+                     </padding>
+                     <font>
+                        <Font name="FreeSans" size="13.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="20.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#edit" style="-fx-background-color: #28DF99;" text="Edit" textFill="#3e3e3e">
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <padding>
+                        <Insets bottom="8.0" left="20.0" right="20.0" top="8.0" />
+                     </padding>
+                     <font>
+                        <Font name="FreeSans" size="13.0" />
+                     </font>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="55.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

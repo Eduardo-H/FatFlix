@@ -2,8 +2,8 @@ package xunito.fatflix.db;
 
 import java.util.List;
 
-import javax.persistence.EntityExistsException;
 import javax.persistence.EntityManager;
+import javax.persistence.PersistenceException;
 
 import xunito.fatflix.entities.Actor;
 
@@ -17,7 +17,7 @@ public class ActorDAO implements InterfaceDAO<Actor> {
 			em.getTransaction().begin();
 			em.persist(t);
 			em.getTransaction().commit();
-		} catch (EntityExistsException e) {
+		} catch (PersistenceException e) {
 			em.getTransaction().rollback();
 			Actor original = get(t.getId());
 			em.getTransaction().begin();

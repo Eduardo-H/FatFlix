@@ -17,8 +17,22 @@ public abstract class Person {
 	private String nationality;
 	private String sex;
 	
+	
+	public Person() {
+		
+	}
+	
 	public Person(String name, String birthDate, String nationality, String sex) {
 		super();
+		this.name = name;
+		this.birthDate = birthDate;
+		this.nationality = nationality;
+		this.sex = sex;
+	}
+	
+	public Person(int id, String name, String birthDate, String nationality, String sex) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.birthDate = birthDate;
 		this.nationality = nationality;
