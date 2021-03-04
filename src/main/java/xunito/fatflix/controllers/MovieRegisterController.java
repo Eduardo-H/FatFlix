@@ -31,7 +31,7 @@ public class MovieRegisterController implements Initializable {
 	@FXML
 	private TextField releaseYearTxt;
 	@FXML
-	private TextField lenghtTxt;
+	private TextField lengthTxt;
 	
 	@FXML
 	private ListView<String> directorsList;
@@ -50,6 +50,8 @@ public class MovieRegisterController implements Initializable {
 	private List<Actor> actors;
 	private List<Producer> producers;
 	
+	private int movieId; 
+	
 	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
@@ -66,7 +68,7 @@ public class MovieRegisterController implements Initializable {
 	public void save() {
 		String title = titleTxt.getText();
 		String release = releaseYearTxt.getText();
-		String lenght = lenghtTxt.getText();
+		String length = lengthTxt.getText();
 		
 		if (title.isBlank()) {
 			Alert alert = AlertUtil.error("Error!", "Error!", "Type the movie's title.", null);
@@ -90,7 +92,7 @@ public class MovieRegisterController implements Initializable {
 			return;
 		}
 		
-		if (lenght.isBlank()) {
+		if (length.isBlank()) {
 			Alert alert = AlertUtil.error("Error!", "Error!", "Type the movie's lenght.", null);
 			alert.showAndWait();
 			return;
@@ -114,7 +116,12 @@ public class MovieRegisterController implements Initializable {
 			return;
 		}
 		
-		new MovieDAO().persist(new Movie(title, transformedRelease, lenght, directors, actors, producers));
+		Movie movie = new Movie(title, transformedRelease, length, directors, actors, producers);
+		
+		if (movieId > 0)
+			movie.setId(movieId);
+		
+		new MovieDAO().persist(movie);
 		
 		Alert alert = AlertUtil.info("Success!", "Operation successfully completed", "Movie saved in the database.");
 		alert.show();
@@ -299,5 +306,45 @@ public class MovieRegisterController implements Initializable {
 		}
 		
 		producersList.setItems(FXCollections.observableArrayList(names));
+	}
+	
+	public void setMovieId(int id) {
+		this.movieId = id;
+		setFields();
+	}
+	
+	public void setFields() {
+		if (movieId > 0) {
+			Movie movie = new MovieDAO().get(movieId);
+			
+			titleTxt.setText(movie.getTitle());
+			releaseYearTxt.setText(Integer.toString(movie.getReleaseYear()));
+			lengthTxt.setText(movie.getLength());
+			
+			ArrayList<String> directorsNames = new ArrayList<String>();
+			ArrayList<String> actorsNames = new ArrayList<String>();
+			ArrayList<String> producersNames = new ArrayList<String>();
+			
+			for (Director director : movie.getDirectors()) {
+				directorsNames.add(director.getName());
+				directors.add(director);
+			}
+			
+			directorsList.setItems(FXCollections.observableArrayList(directorsNames));
+			
+			for (Actor actor : movie.getActors()) {
+				actorsNames.add(actor.getName());
+				actors.add(actor);
+			}
+			
+			actorsList.setItems(FXCollections.observableArrayList(actorsNames));
+			
+			for (Producer producer : movie.getProducers()) {
+				producersNames.add(producer.getName());
+				producers.add(producer);
+			}
+			
+			producersList.setItems(FXCollections.observableArrayList(producersNames));
+		}
 	}
 }

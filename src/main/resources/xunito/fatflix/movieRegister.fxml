@@ -45,7 +45,7 @@
                         <Insets right="10.0" />
                      </GridPane.margin>
                   </JFXTextField>
-                  <JFXTextField fx:id="lenghtTxt" focusColor="#28df99" labelFloat="true" promptText="Lenght" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE" GridPane.columnIndex="1">
+                  <JFXTextField fx:id="lengthTxt" focusColor="#28df99" labelFloat="true" promptText="Length" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE" GridPane.columnIndex="1">
                      <GridPane.margin>
                         <Insets left="10.0" />
                      </GridPane.margin>

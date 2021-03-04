@@ -13,21 +13,21 @@ public class Movie extends Recording {
 		super();
 	}
 	
-	public Movie(String title, int releaseYear, String lenght) {
+	public Movie(String title, int releaseYear, String length) {
 		super(title, releaseYear);
-		this.length = lenght;
+		this.length = length;
 	}
 
-	public Movie(String title, int releaseYear, String lenght, List<Director> directors, List<Actor> actors,
+	public Movie(String title, int releaseYear, String length, List<Director> directors, List<Actor> actors,
 			List<Producer> producers) {
 		super(title, releaseYear, directors, producers, actors);
-		this.length = lenght;
+		this.length = length;
 	}
 	
-	public Movie(int id, String title, int releaseYear, String lenght, List<Director> directors, 
+	public Movie(int id, String title, int releaseYear, String length, List<Director> directors, 
 			List<Actor> actors, List<Producer> producers) {
 		super(id, title, releaseYear, directors, producers, actors);
-		this.length = lenght;
+		this.length = length;
 	}
 
 	public String getLength() {
