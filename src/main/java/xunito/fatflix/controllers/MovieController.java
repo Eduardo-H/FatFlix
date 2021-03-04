@@ -24,6 +24,7 @@ public class MovieController {
 			FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource("movieRegister.fxml"));
 			Scene scene = new Scene(fxmlLoader.load());
 			Stage stage = (Stage) logo.getScene().getWindow();
+			stage.setResizable(false);
 			stage.setScene(scene);
 			stage.show();
 		} catch (IOException e) {
