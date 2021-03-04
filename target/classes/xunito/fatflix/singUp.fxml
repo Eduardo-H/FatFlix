@@ -34,7 +34,7 @@
             </Label>
             <VBox prefHeight="200.0" prefWidth="100.0">
                <children>
-                  <JFXTextField focusColor="#28df99" labelFloat="true" promptText="Username" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
+                  <JFXTextField fx:id="usernameTxt" focusColor="#28df99" labelFloat="true" promptText="Username" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
                      <VBox.margin>
                         <Insets bottom="40.0" top="20.0" />
                      </VBox.margin>
@@ -42,7 +42,7 @@
                         <Font name="FreeSans" size="13.0" />
                      </font>
                   </JFXTextField>
-                  <JFXPasswordField focusColor="#28df99" labelFloat="true" promptText="Password" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
+                  <JFXPasswordField fx:id="passwordTxt" focusColor="#28df99" labelFloat="true" promptText="Password" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
                      <VBox.margin>
                         <Insets bottom="40.0" />
                      </VBox.margin>
@@ -50,7 +50,7 @@
                         <Font name="FreeSans" size="13.0" />
                      </font>
                   </JFXPasswordField>
-                  <JFXPasswordField focusColor="#28df99" labelFloat="true" promptText="Confirm Password" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
+                  <JFXPasswordField fx:id="confirmPasswordTxt" focusColor="#28df99" labelFloat="true" promptText="Confirm Password" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
                      <font>
                         <Font name="FreeSans" size="13.0" />
                      </font>
