@@ -44,7 +44,7 @@
                   <Insets bottom="15.0" />
                </VBox.margin>
             </HBox>
-            <JFXTextField focusColor="#28de98" labelFloat="true" promptText="Username" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
+            <JFXTextField fx:id="usernameTxt" focusColor="#28de98" labelFloat="true" promptText="Username" style="-fx-text-fill: #fff; -fx-prompt-text-fill: #fff;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="50.0" left="100.0" right="100.0" top="20.0" />
                </VBox.margin>
@@ -52,7 +52,7 @@
                   <Font name="FreeSans" size="13.0" />
                </font>
             </JFXTextField>
-            <JFXPasswordField focusColor="#28de98" labelFloat="true" promptText="Password" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" unFocusColor="WHITE">
+            <JFXPasswordField fx:id="passwordTxt" focusColor="#28de98" labelFloat="true" promptText="Password" style="-fx-prompt-text-fill: #fff; -fx-text-fill: #fff;" unFocusColor="WHITE">
                <VBox.margin>
                   <Insets bottom="20.0" left="100.0" right="100.0" />
                </VBox.margin>
