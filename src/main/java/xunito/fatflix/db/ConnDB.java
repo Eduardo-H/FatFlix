@@ -21,7 +21,7 @@ public class ConnDB {
 
 	private static EntityManagerFactory getEntityManagerFactory() {
 		if (entityManagerFactory == null)
-			entityManagerFactory = Persistence.createEntityManagerFactory("test");
+			entityManagerFactory = Persistence.createEntityManagerFactory("fatflix");
 		return entityManagerFactory;
 	}
 
