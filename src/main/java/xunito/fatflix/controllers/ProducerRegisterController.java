@@ -84,6 +84,7 @@ public class ProducerRegisterController {
 		if (producerName != null) {
 			Producer producer = new ProducerDAO().get(producerName);
 			nameTxt.setText(producer.getName());
+			nameTxt.setDisable(true);
 			foundationDateTxt.setText(producer.getFoundation());
 		}
 	}
